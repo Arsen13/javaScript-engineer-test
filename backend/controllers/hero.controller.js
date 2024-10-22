@@ -115,6 +115,32 @@ const updateHeroById = async (req, res) => {
         console.error("Error in updateHeroById controller", error.message);
         res.status(500).json({ error: "Internal server error" });
     }
-}
+};
 
-module.exports = { createHero, getAllHero, getHeroById, updateHeroById };
+const deleteHeroById = async (req, res) => {
+    try {
+        const heroId = req.params.id;
+
+        const hero = await Hero.findById(heroId);
+
+        if (!hero) {
+            return res.status(404).json({ error: "Hero not found" });
+        }
+
+        if (hero.images) {
+            const publicId = 'hero_pics/' + hero.images.split('/').pop().split('.')[0];
+            await deleteFromCloudinary(publicId);
+        }
+
+        await Hero.deleteOne({ _id: hero._id });
+
+
+        return res.status(200).json({ message: "Hero deleted successfully" });
+
+    } catch (error) {
+        console.error("Error in deleteHeroById controller", error.message);
+        res.status(500).json({ error: "Internal server error" });
+    }
+};
+
+module.exports = { createHero, getAllHero, getHeroById, updateHeroById, deleteHeroById };
