@@ -21,4 +21,16 @@ const uploadToCloudinary = async (file) => {
     });
 };
 
-module.exports = { storage, uploadToCloudinary };
+const deleteFromCloudinary = async (publicId) => {
+    return new Promise((resolve, reject) => {
+        cloudinary.uploader.destroy(publicId, (error, result) => {
+            if (result) {
+                resolve(result);
+            } else {
+                reject(error);
+            }
+        });
+    });
+};
+
+module.exports = { storage, uploadToCloudinary, deleteFromCloudinary };
