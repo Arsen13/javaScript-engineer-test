@@ -1,0 +1,14 @@
+.home {
+    padding: 50px;
+}
+
+.title {
+    text-align: center;
+}
+
+.header button {
+    display: inline-block;
+    position: absolute;
+    right: 2rem;
+    top: 3rem
+}
