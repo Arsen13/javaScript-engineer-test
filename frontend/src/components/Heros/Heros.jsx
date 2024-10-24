@@ -1,17 +1,17 @@
 import Hero from "../Hero/Hero";
-import css from "./Heros.module.css"
+import css from "./Heros.module.css";
 
-const Heros = () => {
+const Heros = ({ herosList }) => {
+
     return (
         <div className={css.heros}>
-            <Hero />
-            <Hero />
-            <Hero />
-            <Hero />
-            <Hero />
-            <Hero />
-            <Hero />
-            <Hero />
+            {herosList.map((hero) => (
+                <Hero 
+                    key={hero._id}
+                    nickname={hero.nickname}
+                    image={hero.images}
+                />
+            ))}
         </div>
     )
 };

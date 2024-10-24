@@ -21,5 +21,7 @@ p {
 .image {
     border-radius: 20px;
     width: 10rem;
+    height: 7rem;
     margin-bottom: 0;
+    object-fit: fill;
 }
