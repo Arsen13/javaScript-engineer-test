@@ -1,0 +1,69 @@
+.text {
+    text-align: center;
+}
+
+.heroCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    width: 25rem;
+    background: #1f2937;
+    border: 2px solid gray;
+    border-radius: 8px;
+}
+
+.heroCard img {
+    height: 14rem;
+    width: 15rem;
+    border-radius: 8px;
+}
+
+.nickname {
+    font-size: xx-large;
+    margin: 0;
+}
+
+.realname {
+    font-size: x-large;
+    color: #a5a5a5;
+}
+
+.desc {
+    color:rgb(212, 194, 170);
+}
+
+.powers {
+    color: rgb(204, 216, 181);
+}
+
+.phrase {
+    color: rgb(241, 171, 158);
+}
+
+.buttonsContainer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+}
+
+.header button {
+    position: absolute;
+    right: 2rem;
+    top: 3rem
+}
+
+@media (max-width: 900px) {
+    .header button {
+        position:inherit;
+    }
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+}

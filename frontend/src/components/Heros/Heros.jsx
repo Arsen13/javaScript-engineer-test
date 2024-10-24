@@ -1,7 +1,7 @@
 import Hero from "../Hero/Hero";
 import css from "./Heros.module.css";
 
-const Heros = ({ herosList }) => {
+const Heros = ({ herosList, moreInfo }) => {
 
     return (
         <div className={css.heros}>
@@ -10,6 +10,8 @@ const Heros = ({ herosList }) => {
                     key={hero._id}
                     nickname={hero.nickname}
                     image={hero.images}
+                    moreInfo={moreInfo}
+                    heroId={hero._id}
                 />
             ))}
         </div>

@@ -20,7 +20,19 @@ const Home = () => {
                 setHerosList(response.data.heros);
             }
         } catch (error) {
-            console.log("An unexpected error occured. Please try again");
+            console.error("An unexpected error occured. Please try again", error.message);
+        }
+    };
+
+    const moreInfo = async (heroId) => {
+        try {
+            const response = await axiosInstance.get(`/getHero/${heroId}`);
+            
+            if (response.data) {
+                navigate("/infoAboutHero", { state: response.data });
+            }
+        } catch (error) {
+            console.error("An unexpected error occured. Please try again", error.message);
         }
     };
 
@@ -35,7 +47,7 @@ const Home = () => {
                 <button onClick={createNewHero}>Create new Hero</button>
             </div>
             
-            <Heros herosList={herosList} />
+            <Heros herosList={herosList} moreInfo={moreInfo} />
         </main>
     )
 }
